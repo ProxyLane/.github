@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face { font-family: Inter; src: url(inter-latin.woff2) format("woff2"); font-weight: 100 900; }
+  :root {
+    --ink: #1b1b1b; --canvas: #eaeaea; --marble: #ffffff; --steel: #60646c; --ash: #7c7c7c;
+    --hairline: #e0e1e6; --mint: #00f2e6; --mint-soft: #d9f7f3; --status: #11946b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1280px; height: 400px; }
+  body {
+    font-family: Inter, sans-serif; color: var(--ink); background: var(--canvas);
+    background-image:
+      linear-gradient(rgba(27,27,27,.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(27,27,27,.055) 1px, transparent 1px);
+    background-size: 40px 40px; background-position: -1px -1px;
+    display: flex; align-items: center; justify-content: space-between; padding: 0 72px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .left { display: flex; flex-direction: column; gap: 20px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-size: 22px; font-weight: 600; letter-spacing: -0.03em; }
+  .brand img { width: 34px; height: 34px; }
+  .eyebrow { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; letter-spacing: .11em; color: var(--steel); }
+  .dot { width: 6px; height: 6px; border-radius: 3px; background: var(--status); }
+  h1 { font-size: 50px; font-weight: 600; letter-spacing: -0.05em; line-height: 1.04; }
+  h1 span { color: #7c8086; }
+  .panel {
+    width: 520px; background: var(--marble); border: 1px solid var(--hairline); border-radius: 20px;
+    box-shadow: rgba(0,0,0,.15) 0 4px 20px 0; padding: 22px 24px; display: flex; flex-direction: column; gap: 14px;
+  }
+  .cmd { font: 500 13px/1.4 ui-monospace, "SF Mono", Menlo, monospace; background: #f5f6f7; border-radius: 12px; padding: 12px 14px; color: var(--ink); white-space: nowrap; }
+  .cmd b { color: var(--ash); font-weight: 500; }
+  .row { display: grid; grid-template-columns: 26px 1fr auto; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid var(--hairline); }
+  .row:first-of-type { border-top: 0; }
+  .tick { width: 26px; height: 26px; border-radius: 13px; background: var(--mint-soft); display: grid; place-items: center; }
+  .tick svg { width: 14px; height: 14px; }
+  .name { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
+  .name small { display: block; font-size: 13px; font-weight: 400; color: var(--steel); margin-top: 2px; letter-spacing: 0; }
+  .meta { font-size: 13px; font-weight: 600; color: var(--steel); display: flex; align-items: center; gap: 8px; }
+  .bar { display: flex; gap: 3px; height: 18px; align-items: flex-end; }
+  .bar i { display: block; width: 5px; border-radius: 2px; background: var(--mint); }
+</style>
+</head>
+<body>
+  <div class="left">
+    <div class="brand"><img src="../profile/assets/proxylane-mark.svg" alt="">ProxyLane</div>
+    <div class="eyebrow"><span class="dot"></span>OPEN SOURCE FOR AGENTS</div>
+    <h1>Scrape through<br>the right IP.<br><span>Know why it fails.</span></h1>
+  </div>
+  <div class="panel">
+    <div class="cmd"><b>$</b> npx skills add ProxyLane/skills --skill web-scraping</div>
+    <div>
+      <div class="row">
+        <span class="tick"><svg viewBox="0 0 14 14"><path d="M3 7.5l2.6 2.5L11 4.5" fill="none" stroke="#1b1b1b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="name">Proxy doctor<small>exit IP, timezone, sticky check</small></span>
+        <span class="meta">sticky 4/4</span>
+      </div>
+      <div class="row">
+        <span class="tick"><svg viewBox="0 0 14 14"><path d="M3 7.5l2.6 2.5L11 4.5" fill="none" stroke="#1b1b1b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="name">Tool ladder<small>Scrapling, Crawl4AI, Patchright, Camoufox</small></span>
+        <span class="meta"><span class="bar"><i style="height:6px"></i><i style="height:10px"></i><i style="height:14px"></i><i style="height:18px"></i></span></span>
+      </div>
+      <div class="row">
+        <span class="tick"><svg viewBox="0 0 14 14"><path d="M3 7.5l2.6 2.5L11 4.5" fill="none" stroke="#1b1b1b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="name">Page verdicts<small>ok, captcha, block, empty, error</small></span>
+        <span class="meta">every page</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

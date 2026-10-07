@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face { font-family: Inter; src: url(inter-latin.woff2) format("woff2"); font-weight: 100 900; }
+  :root { --ink:#1b1b1b; --canvas:#eaeaea; --marble:#fff; --steel:#60646c; --hairline:#e0e1e6; --mint:#00f2e6; --mint-soft:#d9f7f3; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1280px; height: 520px; }
+  body {
+    font-family: Inter, sans-serif; color: var(--ink); background: var(--canvas);
+    background-image: linear-gradient(rgba(27,27,27,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(27,27,27,.055) 1px, transparent 1px);
+    background-size: 40px 40px; background-position: -1px -1px; padding: 48px 72px; -webkit-font-smoothing: antialiased;
+  }
+  .head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 28px; }
+  h2 { font-size: 34px; font-weight: 600; letter-spacing: -0.04em; line-height: 1.1; }
+  h2 span { color: #7c8086; }
+  .legend { font-size: 13px; font-weight: 600; letter-spacing: .11em; color: var(--steel); display: flex; align-items: center; gap: 10px; }
+  .steps { position: relative; height: 340px; }
+  .step {
+    position: absolute; width: 268px; background: var(--marble); border: 1px solid var(--hairline); border-radius: 20px; padding: 18px 20px;
+  }
+  .step.lift { box-shadow: rgba(0,0,0,.15) 0 4px 20px 0; }
+  .n { font-size: 13px; font-weight: 600; letter-spacing: .11em; color: var(--steel); display: flex; justify-content: space-between; align-items: center; }
+  .cost { display: flex; gap: 3px; align-items: flex-end; height: 14px; }
+  .cost b { display: block; width: 5px; border-radius: 2px; background: var(--hairline); }
+  .cost b.on { background: var(--mint); }
+  .t { margin-top: 10px; font-size: 19px; font-weight: 600; letter-spacing: -0.02em; }
+  .d { margin-top: 4px; font-size: 14px; color: var(--steel); line-height: 1.43; }
+  .when { white-space: nowrap; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--hairline); font-size: 13px; color: var(--steel); }
+  .when strong { color: var(--ink); font-weight: 600; }
+</style>
+</head>
+<body>
+  <div class="head">
+    <h2>The cheapest tool that works.<br><span>Climb only when a verdict says so.</span></h2>
+    <div class="legend">TRAFFIC PER PAGE <span class="cost"><b class="on" style="height:5px"></b><b class="on" style="height:8px"></b><b class="on" style="height:11px"></b><b class="on" style="height:14px"></b></span></div>
+  </div>
+  <div class="steps">
+    <div class="step" style="left:0; top:186px">
+      <div class="n">RUNG 1 <span class="cost"><b class="on" style="height:5px"></b><b style="height:8px"></b><b style="height:11px"></b><b style="height:14px"></b></span></div>
+      <div class="t">HTTP, browser TLS</div>
+      <div class="d">Scrapling Fetcher</div>
+      <div class="when"><strong>Start here:</strong> data in the response</div>
+    </div>
+    <div class="step" style="left:284px; top:124px">
+      <div class="n">RUNG 2 <span class="cost"><b class="on" style="height:5px"></b><b class="on" style="height:8px"></b><b style="height:11px"></b><b style="height:14px"></b></span></div>
+      <div class="t">Rendered browser</div>
+      <div class="d">Crawl4AI, Scrapling Dynamic</div>
+      <div class="when">After <strong>block</strong> or JS-only <strong>empty</strong></div>
+    </div>
+    <div class="step lift" style="left:568px; top:62px">
+      <div class="n">RUNG 3 <span class="cost"><b class="on" style="height:5px"></b><b class="on" style="height:8px"></b><b class="on" style="height:11px"></b><b style="height:14px"></b></span></div>
+      <div class="t">Stealth Chrome</div>
+      <div class="d">Patchright, Scrapling Stealthy</div>
+      <div class="when">After <strong>captcha</strong> on a steady session</div>
+    </div>
+    <div class="step" style="left:852px; top:0px">
+      <div class="n">RUNG 4 <span class="cost"><b class="on" style="height:5px"></b><b class="on" style="height:8px"></b><b class="on" style="height:11px"></b><b class="on" style="height:14px"></b></span></div>
+      <div class="t">Anti-detect Firefox</div>
+      <div class="d">Camoufox with geoip</div>
+      <div class="when">When Chromium is <strong>fingerprinted</strong></div>
+    </div>
+  </div>
+</body>
+</html>
