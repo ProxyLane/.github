@@ -5,68 +5,78 @@
 <style>
   @font-face { font-family: Inter; src: url(inter-latin.woff2) format("woff2"); font-weight: 100 900; }
   :root {
-    --ink: #1b1b1b; --canvas: #eaeaea; --marble: #ffffff; --steel: #60646c; --ash: #7c7c7c;
-    --hairline: #e0e1e6; --mint: #00f2e6; --mint-soft: #d9f7f3; --status: #11946b;
+    --ink: #1b1b1b; --canvas: #eaeaea; --marble: #ffffff; --steel: #60646c; --muted: #7c8086;
+    --hairline: #e0e1e6; --chip: #f1f2f4; --sticky-bg: #e8f5d9; --sticky: #3f7a16; --rot-bg: #dff2fb; --rot: #0b6e99; --ok: #8dc63f;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { width: 1280px; height: 400px; }
+  html, body { width: 1280px; height: 560px; }
   body {
     font-family: Inter, sans-serif; color: var(--ink); background: var(--canvas);
     background-image:
-      linear-gradient(rgba(27,27,27,.055) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(27,27,27,.055) 1px, transparent 1px);
-    background-size: 40px 40px; background-position: -1px -1px;
-    display: flex; align-items: center; justify-content: space-between; padding: 0 72px;
-    -webkit-font-smoothing: antialiased;
+      linear-gradient(rgba(27,27,27,.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(27,27,27,.045) 1px, transparent 1px);
+    background-size: 64px 64px; background-position: -1px -1px;
+    position: relative; -webkit-font-smoothing: antialiased;
   }
-  .left { display: flex; flex-direction: column; gap: 20px; }
-  .brand { display: flex; align-items: center; gap: 12px; font-size: 22px; font-weight: 600; letter-spacing: -0.03em; }
-  .brand img { width: 34px; height: 34px; }
-  .eyebrow { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; letter-spacing: .11em; color: var(--steel); }
-  .dot { width: 6px; height: 6px; border-radius: 3px; background: var(--status); }
-  h1 { font-size: 50px; font-weight: 600; letter-spacing: -0.05em; line-height: 1.04; }
-  h1 span { color: #7c8086; }
-  .panel {
-    width: 520px; background: var(--marble); border: 1px solid var(--hairline); border-radius: 20px;
-    box-shadow: rgba(0,0,0,.15) 0 4px 20px 0; padding: 22px 24px; display: flex; flex-direction: column; gap: 14px;
+  .left { position: absolute; left: 76px; top: 64px; width: 720px; }
+  .brand { display: flex; align-items: center; gap: 8px; font-size: 27px; font-weight: 700; letter-spacing: -0.045em; }
+  .brand img { width: 40px; height: 40px; }
+  .proof {
+    margin-top: 46px; display: inline-flex; align-items: center; gap: 10px; height: 42px; padding: 0 18px 0 12px;
+    background: var(--marble); border: 1px solid var(--hairline); border-radius: 40px; font-size: 18px; color: var(--steel);
   }
-  .cmd { font: 500 13px/1.4 ui-monospace, "SF Mono", Menlo, monospace; background: #f5f6f7; border-radius: 12px; padding: 12px 14px; color: var(--ink); white-space: nowrap; }
-  .cmd b { color: var(--ash); font-weight: 500; }
-  .row { display: grid; grid-template-columns: 26px 1fr auto; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid var(--hairline); }
-  .row:first-of-type { border-top: 0; }
-  .tick { width: 26px; height: 26px; border-radius: 13px; background: var(--mint-soft); display: grid; place-items: center; }
-  .tick svg { width: 14px; height: 14px; }
-  .name { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
-  .name small { display: block; font-size: 13px; font-weight: 400; color: var(--steel); margin-top: 2px; letter-spacing: 0; }
-  .meta { font-size: 13px; font-weight: 600; color: var(--steel); display: flex; align-items: center; gap: 8px; }
-  .bar { display: flex; gap: 3px; height: 18px; align-items: flex-end; }
-  .bar i { display: block; width: 5px; border-radius: 2px; background: var(--mint); }
+  .proof .dot { width: 14px; height: 14px; border-radius: 7px; background: var(--ok); box-shadow: 0 0 0 4px #eef7e2; }
+  .proof b { color: var(--ink); font-weight: 600; }
+  .proof .sep { width: 1px; height: 20px; background: var(--hairline); }
+  h1 { margin-top: 26px; font-size: 62px; font-weight: 600; letter-spacing: -0.05em; line-height: 1.02; white-space: nowrap; }
+  h1 span { color: var(--muted); }
+  .sub { margin-top: 18px; font-size: 20px; color: var(--steel); letter-spacing: -0.01em; }
+  .foot { position: absolute; left: 76px; bottom: 56px; display: flex; align-items: center; gap: 18px; font-size: 20px; color: var(--steel); }
+  .cta { background: var(--ink); color: #fff; font-weight: 600; font-size: 19px; padding: 14px 22px; border-radius: 6px; box-shadow: rgba(0,0,0,.15) 0 4px 20px 0; letter-spacing: -0.01em; }
+  .foot b { color: var(--ink); font-weight: 600; }
+  .foot .sep { width: 1px; height: 26px; background: #cfd1d6; }
+  .cards { position: absolute; right: 60px; top: 96px; width: 392px; display: flex; flex-direction: column; gap: 14px; }
+  .card { background: var(--marble); border: 1px solid var(--hairline); border-radius: 20px; padding: 18px 22px; }
+  .card.lead { box-shadow: rgba(0,0,0,.15) 0 4px 20px 0; padding: 20px 22px 18px; }
+  .top { display: flex; justify-content: space-between; align-items: center; font-size: 16px; color: var(--steel); }
+  .pill { display: inline-flex; align-items: center; gap: 6px; font-size: 15px; font-weight: 600; padding: 6px 12px; border-radius: 40px; }
+  .pill.sticky { background: var(--sticky-bg); color: var(--sticky); }
+  .pill.rot { background: var(--rot-bg); color: var(--rot); }
+  .pill svg { width: 13px; height: 13px; }
+  .place { margin-top: 10px; display: flex; align-items: center; gap: 12px; font-size: 22px; font-weight: 600; letter-spacing: -0.02em; }
+  .lead .place { font-size: 28px; }
+  .place img { width: 30px; height: 21px; border-radius: 3px; box-shadow: 0 0 0 1px rgba(0,0,0,.06); object-fit: cover; }
+  .meta { margin-top: 10px; display: flex; align-items: center; gap: 10px; font-size: 16px; color: var(--steel); }
+  .meta .sep { width: 1px; height: 16px; background: var(--hairline); }
+  .ip { font: 500 15px ui-monospace, "SF Mono", Menlo, monospace; color: var(--ink); background: var(--chip); padding: 4px 8px; border-radius: 6px; }
 </style>
 </head>
 <body>
   <div class="left">
     <div class="brand"><img src="../profile/assets/proxylane-mark.svg" alt="">ProxyLane</div>
-    <div class="eyebrow"><span class="dot"></span>OPEN SOURCE FOR AGENTS</div>
-    <h1>Scrape through<br>the right IP.<br><span>Know why it fails.</span></h1>
+    <div class="proof"><span class="dot"></span><b>95.6%</b> of IPs rated low risk <span class="sep"></span> Scamalytics</div>
+    <h1>Residential proxies #1<br><span>for</span> browser workflows</h1>
+    <div class="sub">Open-source skills and tools for scraping and browser agents</div>
   </div>
-  <div class="panel">
-    <div class="cmd"><b>$</b> npx skills add ProxyLane/skills --skill web-scraping</div>
-    <div>
-      <div class="row">
-        <span class="tick"><svg viewBox="0 0 14 14"><path d="M3 7.5l2.6 2.5L11 4.5" fill="none" stroke="#1b1b1b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <span class="name">Proxy doctor<small>exit IP, timezone, sticky check</small></span>
-        <span class="meta">sticky 4/4</span>
-      </div>
-      <div class="row">
-        <span class="tick"><svg viewBox="0 0 14 14"><path d="M3 7.5l2.6 2.5L11 4.5" fill="none" stroke="#1b1b1b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <span class="name">Tool ladder<small>Scrapling, Crawl4AI, Patchright, Camoufox</small></span>
-        <span class="meta"><span class="bar"><i style="height:6px"></i><i style="height:10px"></i><i style="height:14px"></i><i style="height:18px"></i></span></span>
-      </div>
-      <div class="row">
-        <span class="tick"><svg viewBox="0 0 14 14"><path d="M3 7.5l2.6 2.5L11 4.5" fill="none" stroke="#1b1b1b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <span class="name">Page verdicts<small>ok, captcha, block, empty, error</small></span>
-        <span class="meta">every page</span>
-      </div>
+  <div class="foot">
+    <span class="cta">Try 350 MB for $1.95</span>
+    <span><b>28M+</b> IPs</span><span class="sep"></span>
+    <span><b>195</b> countries</span><span class="sep"></span>
+    <span>from <b>$2/GB</b></span>
+  </div>
+  <div class="cards">
+    <div class="card lead">
+      <div class="top">account-01 <span class="pill sticky"><svg viewBox="0 0 14 14"><path d="M5 1.5h4l-.6 4 2.1 1.8v1.2H7.6V13L7 13.5 6.4 13V8.5H3.5V7.3l2.1-1.8z" fill="currentColor"/></svg>Sticky 72h</span></div>
+      <div class="place"><img src="us.webp" alt="">Austin, TX</div>
+      <div class="meta">Comcast <span class="sep"></span> ZIP 78701 <span class="sep"></span> <span class="ip">73.12.48.201</span></div>
+    </div>
+    <div class="card">
+      <div class="top">account-02 <span class="pill sticky"><svg viewBox="0 0 14 14"><path d="M5 1.5h4l-.6 4 2.1 1.8v1.2H7.6V13L7 13.5 6.4 13V8.5H3.5V7.3l2.1-1.8z" fill="currentColor"/></svg>Sticky</span></div>
+      <div class="place"><img src="de.webp" alt="">Berlin</div>
+    </div>
+    <div class="card">
+      <div class="top">scraper-run <span class="pill rot"><svg viewBox="0 0 14 14"><path d="M11.5 7A4.5 4.5 0 1 1 9.6 3.3M9.2 1.2l.6 2.4-2.4.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Rotating</span></div>
+      <div class="place"><img src="jp.webp" alt="">Tokyo</div>
     </div>
   </div>
 </body>

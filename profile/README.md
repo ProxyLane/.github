@@ -1,5 +1,5 @@
 <a href="https://proxylane.dev/?utm_source=github&utm_medium=org_profile&utm_campaign=github_org&utm_content=banner">
-  <img src="./assets/banner.png" alt="ProxyLane: scrape through the right IP and know why it fails">
+  <img src="./assets/banner.png" alt="ProxyLane: residential proxies #1 for browser workflows">
 </a>
 
 <p>
@@ -42,7 +42,7 @@ git clone https://github.com/ProxyLane/proxy-examples
 
 ## What the web-scraping skill does
 
-<img src="./assets/ladder.png" alt="Tool ladder: HTTP with browser TLS, rendered browser, stealth Chrome, anti-detect Firefox; climb only when a verdict says so">
+<img src="./assets/ladder.png" alt="Tool ladder from HTTP with browser TLS to rendered browser, stealth Chrome and anti-detect Firefox">
 
 ```text
 1. proxy_doctor.py    checks the exit before anything depends on it
@@ -58,11 +58,11 @@ The ladder exists because a browser costs more traffic than a request, and resid
 
 ## How we build
 
-- **Cheapest tool first.** Escalate on a classified failure, not on a hunch.
-- **Name every failure.** A CAPTCHA, a block and an empty page need different fixes.
-- **One identity, one sticky exit.** A browser profile never rides a rotating gateway, and its timezone comes from its own exit.
-- **Credentials stay in the environment.** No example prints, logs or commits them.
-- **Numbers carry denominators and dates.** `41/50 ok` on a date, not "high success rate".
+- **Cheapest tool first**: escalate on a classified failure, not on a hunch.
+- **Name every failure**: a CAPTCHA, a block and an empty page need different fixes.
+- **One identity, one sticky exit**: a browser profile never rides a rotating gateway, and its timezone comes from its own exit.
+- **Credentials stay in the environment**: no example prints, logs or commits them.
+- **Numbers carry denominators and dates**: `41/50 ok` on a date, not "high success rate".
 
 Issues and pull requests are welcome in every public repository. A failing case with the tool version, the verdict and the steps to reproduce helps most.
 
